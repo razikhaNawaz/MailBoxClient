@@ -1,0 +1,53 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width:100vw;
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+.parent{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #777;
+    width:50%;
+    height:80%;
+    padding: 20px;
+    border-radius: 10px;
+}
+.child1{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+}
+.child2{
+display: flex;
+flex-direction: row;
+margin-left: 10px;
+font-size: 20px;
+margin-top: 20px;
+}
+.child1 div{
+    margin-right: 25px;
+    font-size: 20px;
+}
+.child1 input{
+    width:300px;
+    border-radius: 7px;
+    margin-left: 25px;
+    
+}
+.child1 button{
+    margin-left: 30%;
+}
+.child2 input{
+    width:300px;
+    border-radius: 7px;
+    margin-left: 10px;
+   
+}
+.child3{
+    margin-top: 20px;
+}

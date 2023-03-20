@@ -57,6 +57,7 @@ const Authentication = () => {
             }
             alert('login successful')
             dispatch(AuthActions.login())
+            localStorage.setItem('email',email)
         } catch (error) {
            console.log(error); 
         }
