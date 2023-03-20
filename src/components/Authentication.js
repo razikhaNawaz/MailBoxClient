@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { AuthActions } from '../ReduxStore/AuthReducer';
 import classes from './Authentication.module.css';
 
 const Authentication = () => {
@@ -6,6 +8,8 @@ const Authentication = () => {
     const [Password, setPassword]=useState('')
     const [confirmPassword, setConfirmPassword]=useState('')
     const [login, setLogin]=useState(true)
+
+    const dispatch=useDispatch()
 
     const emailHandler=(e)=>{
         setEmail(e.target.value)
@@ -52,6 +56,7 @@ const Authentication = () => {
                 return alert(data.error.message)
             }
             alert('login successful')
+            dispatch(AuthActions.login())
         } catch (error) {
            console.log(error); 
         }
