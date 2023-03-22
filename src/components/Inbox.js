@@ -40,7 +40,7 @@ const Inbox = () => {
   <tbody>
     {inboxData.map((item, index)=>{
       return (
-        <tr key={index}>
+        <tr key={item.id}>
       <td scope="row">{index+1}</td>
       <td>{item.from}</td>
       <td>{item.subject}</td>
