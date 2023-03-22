@@ -1,0 +1,18 @@
+.parent{
+    display: flex;
+    
+    border: 1px solid black;
+    width: 100vw;
+    height: 100vh;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    
+    width: 50%;
+    height: 30px;
+   align-items: center; 
+   justify-content: space-between;
+   margin-left: 10px;
+   margin-top: 10px;
+}

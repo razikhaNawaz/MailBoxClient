@@ -60,16 +60,15 @@ const ComposeMail = () => {
 
   const subjectHandler=(e)=>{
     setSubject(e.target.value)
-    postDatatoSentBox()
-    postDataToInbox()
+   
   }
 
   
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(receiver, subject)
-    console.log(editorState.getCurrentContent().getPlainText());
+    postDatatoSentBox()
+    postDataToInbox()
   };
 
   return (

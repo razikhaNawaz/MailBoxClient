@@ -77,7 +77,7 @@ const Authentication = () => {
             <h3>SignUp</h3>
             <div className={classes.input}>
             <input type="email" placeholder='Email' value={email} onChange={emailHandler} required/>
-            <input type="password" placeholder='Password' value={Password} onChange={passwordHandler} required/>
+            <input type="text" placeholder='Password' value={Password} onChange={passwordHandler} required/>
             <input type="password"placeholder='Confirm Password' value={confirmPassword} onChange={confirmPasswordHandler} required/>
 
             </div>
