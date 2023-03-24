@@ -1,18 +1,19 @@
 .parent{
     display: flex;
     
-    border: 1px solid black;
+    
     width: 100vw;
     height: 100vh;
 }
-.container{
-    display: flex;
-    flex-direction: row;
+.sidebar{
+    width:20%;
     
-    width: 50%;
-    height: 30px;
-   align-items: center; 
-   justify-content: space-between;
-   margin-left: 10px;
-   margin-top: 10px;
+    margin-top: 30px;
+}
+.tableParent{
+    width:60%;
+    border:1px solid grey;
+    border-radius: 10px;
+    height: fit-content;
+    margin-top: 30px;
 }

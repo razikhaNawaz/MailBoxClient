@@ -31,7 +31,7 @@ const Authentication = () => {
     let url;
     const auth=async()=>{
         if(confirmPassword!==Password){
-            return alert('password and confirmpassword if different')
+            return alert('password and confirmpassword is different')
         }
         if(login){
             url='https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBxTQ7HpWywXD3DiL6bVUKO1E84bk-GQxI'

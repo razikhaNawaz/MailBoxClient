@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import classes from "./ComposeMail.module.css";
+import Sidebar from "./Sidebar";
 const ComposeMail = () => {
   const [editorState, setEditorState] = useState(()=> EditorState.createEmpty());
   const [receiver, setReceiver]=useState('');
@@ -38,7 +39,8 @@ const ComposeMail = () => {
             body:JSON.stringify({
                 from:sender,
                 subject:subject,
-                message:editorState.getCurrentContent().getPlainText()
+                message:editorState.getCurrentContent().getPlainText(),
+                read:false
             }),
             headers:{
                 'Content-Type':'application/json'
@@ -50,8 +52,8 @@ const ComposeMail = () => {
   }
   
 
-  const EditorStateChangeHandler = (editorState) => {
-    setEditorState(editorState);
+  const EditorStateChangeHandler = (e) => {
+    setEditorState(e);
   };
 
   const receiverHandler=(e)=>{
@@ -69,10 +71,16 @@ const ComposeMail = () => {
     e.preventDefault();
     postDatatoSentBox()
     postDataToInbox()
+    setReceiver('')
+    setSubject('')
+    setEditorState('')
   };
 
   return (
     <div className={classes.container}>
+      <div className={classes.sidebar}>
+    <Sidebar />
+    </div>
       <div className={classes.parent}>
         <div className={classes.child1}>
           <div>To: </div>

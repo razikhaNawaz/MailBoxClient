@@ -1,0 +1,11 @@
+.parent{
+    display: flex;
+    flex-direction: row;
+    width:30%;
+    
+}
+.msg{
+    border: 1px solid grey;
+    height:10%;
+    margin-left: 30%;
+}
