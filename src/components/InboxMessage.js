@@ -39,7 +39,7 @@ const InboxMessage = () => {
   },[])
   return (
     <div className={classes.parent}>
-      <Sidebar />
+      
       <div className={classes.msg}>
         <p>{singlemsg}</p>
       </div>

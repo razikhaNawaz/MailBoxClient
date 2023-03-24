@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { sentBoxActions } from "../ReduxStore/SentBoxReducer";
 import Sidebar from "./Sidebar";
 import classes from './SentBox.module.css'
+import { Link } from "react-router-dom";
 
 const SentBox = () => {
   const dispatch = useDispatch();
@@ -50,7 +51,7 @@ const SentBox = () => {
                   <th scope="row">{index + 1}</th>
                   <td>{item.to}</td>
                   <td>{item.subject}</td>
-                  <td>{item.message}</td>
+                  <td><Link to={`/Sentbox/${item.id}`}>Open Message</Link></td>
                   <td><button type="button" class="btn btn-danger">delete</button></td>
                 </tr>
               );

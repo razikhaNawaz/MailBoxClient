@@ -57,7 +57,7 @@ const Inbox = () => {
               return (
                 <tr key={item.id}>
                   <td scope="row">{index + 1}</td>
-                  <td>{item.from}</td>
+                  <td>{!item.read && <div style={{width:'10px', height:'10px', borderRadius:'100%',backgroundColor:'blue'}}></div>}{item.from}</td>
                   <td>{item.subject}</td>
                   <td><Link to= {`/Inbox/${item.id}`}>Open Message</Link></td>
                   <td><button type="button" class="btn btn-danger">delete</button></td>
