@@ -25,9 +25,26 @@ const SentBox = () => {
       console.log(error);
     }
   };
+
+const deleteData=async(id)=>{
+  try {
+    const response=await fetch(`${url}/sentBox/${sender}/${id}.json`, {
+      method:'DELETE'
+    })
+    getData();
+  } catch (error) {
+    console.log(error);
+  }
+}
+const deleteHandler=(id)=>{
+  deleteData(id)
+}
+
   useEffect(() => {
     getData();
   }, []);
+
+
   return (
     <div className={classes.container}>
       <div className={classes.sidebar}>
@@ -52,7 +69,7 @@ const SentBox = () => {
                   <td>{item.to}</td>
                   <td>{item.subject}</td>
                   <td><Link to={`/Sentbox/${item.id}`}>Open Message</Link></td>
-                  <td><button type="button" class="btn btn-danger">delete</button></td>
+                  <td><button type="button" class="btn btn-danger" onClick={deleteHandler.bind(null, item.id)}>delete</button></td>
                 </tr>
               );
             })}

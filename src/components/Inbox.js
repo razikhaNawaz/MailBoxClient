@@ -33,9 +33,24 @@ const Inbox = () => {
     }
   };
 
+  const deleteData=async(id)=>{
+    try {
+      const response=await fetch(`${url}/Inbox/${email}/${id}.json`,{
+        method:'DELETE'
+      })
+      getData()
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  const deleteHandler=(id)=>{
+    deleteData(id)
+  }
+
   useEffect(() => {
     getData();
   }, []);
+
   return (
     <div className={classes.parent}>
       <div className={classes.sidebar}>
@@ -60,7 +75,7 @@ const Inbox = () => {
                   <td>{!item.read && <div style={{width:'10px', height:'10px', borderRadius:'100%',backgroundColor:'blue'}}></div>}{item.from}</td>
                   <td>{item.subject}</td>
                   <td><Link to= {`/Inbox/${item.id}`}>Open Message</Link></td>
-                  <td><button type="button" class="btn btn-danger">delete</button></td>
+                  <td><button type="button" class="btn btn-danger" onClick={deleteHandler.bind(null, item.id)}>delete</button></td>
                 </tr>
               );
             })}
