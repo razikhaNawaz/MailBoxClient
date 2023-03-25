@@ -10,10 +10,10 @@ const SentBox = () => {
   const sentBoxData = useSelector((state) => state.sentBoxReducer.dataSentbox);
 
   let url = "https://mailbox-f7b85-default-rtdb.firebaseio.com";
-  const sender = localStorage.getItem("email").replace(/['@','.']/g, "");
+  const email = localStorage.getItem("email").replace(/['@','.']/g, "");
   const getData = async () => {
     try {
-      const response = await fetch(`${url}/sentBox/${sender}.json`);
+      const response = await fetch(`${url}/sentBox/${email}.json`);
       const data = await response.json();
 
       const arrayData = [];
@@ -28,7 +28,7 @@ const SentBox = () => {
 
 const deleteData=async(id)=>{
   try {
-    const response=await fetch(`${url}/sentBox/${sender}/${id}.json`, {
+    const response=await fetch(`${url}/sentBox/${email}/${id}.json`, {
       method:'DELETE'
     })
     getData();

@@ -12,33 +12,33 @@ const Inbox = () => {
 
   let url = "https://mailbox-f7b85-default-rtdb.firebaseio.com";
   const email = localStorage.getItem("email").replace(/['@','.']/g, "");
-  const getData = async () => {
-    try {
-      const response = await fetch(`${url}/Inbox/${email}.json`);
-      const data = await response.json();
-      let arrayOfData = [];
-      for (let key in data) {
-        arrayOfData.unshift({ id: key, ...data[key] });
-      }
-      dispatch(InboxActions.changeInbox(arrayOfData));
-      let count=0;
-      arrayOfData.forEach((msg)=>{
-        if(msg.read===false){
-          count++;
-        }
-      })
-      dispatch(InboxActions.updateUnread(count))
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const getData = async () => {
+  //   try {
+  //     const response = await fetch(`${url}/Inbox/${email}.json`);
+  //     const data = await response.json();
+  //     let arrayOfData = [];
+  //     for (let key in data) {
+  //       arrayOfData.unshift({ id: key, ...data[key] });
+  //     }
+  //     dispatch(InboxActions.changeInbox(arrayOfData));
+  //     let count=0;
+  //     arrayOfData.forEach((msg)=>{
+  //       if(msg.read===false){
+  //         count++;
+  //       }
+  //     })
+  //     dispatch(InboxActions.updateUnread(count))
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const deleteData=async(id)=>{
     try {
       const response=await fetch(`${url}/Inbox/${email}/${id}.json`,{
         method:'DELETE'
       })
-      getData()
+      dispatch(InboxActions.updateGet())
     } catch (error) {
       console.log(error);
     }
@@ -47,9 +47,9 @@ const Inbox = () => {
     deleteData(id)
   }
 
-  useEffect(() => {
-    getData();
-  }, []);
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
   return (
     <div className={classes.parent}>

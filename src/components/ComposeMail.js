@@ -4,6 +4,8 @@ import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import classes from "./ComposeMail.module.css";
 import Sidebar from "./Sidebar";
+
+
 const ComposeMail = () => {
   const [editorState, setEditorState] = useState(()=> EditorState.createEmpty());
   const [receiver, setReceiver]=useState('');
@@ -11,6 +13,7 @@ const ComposeMail = () => {
 
   let url='https://mailbox-f7b85-default-rtdb.firebaseio.com';
   const sender=localStorage.getItem('email').replace(/['@','.']/g,'')
+  const sender1=localStorage.getItem('email')
 
   const postDatatoSentBox=async()=>{
     try {
@@ -37,7 +40,7 @@ const ComposeMail = () => {
         const response=await fetch(`${url}/Inbox/${receiver1}.json`,{
             method:'POST',
             body:JSON.stringify({
-                from:sender,
+                from:sender1,
                 subject:subject,
                 message:editorState.getCurrentContent().getPlainText(),
                 read:false

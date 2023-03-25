@@ -1,0 +1,17 @@
+.parent{
+    display: flex;
+    flex-direction: row;
+    width:100vw;
+    
+    justify-content: center;
+
+}
+.msg{
+    margin-top: 20px;
+    border: 1px solid grey;
+    height:fit-content;
+    border-radius: 5px;
+    width:fit-content;
+    padding: 10px;
+
+}

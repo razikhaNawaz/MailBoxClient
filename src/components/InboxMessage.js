@@ -11,6 +11,8 @@ const InboxMessage = () => {
   console.log(arrayData);
   const singlemsg = Msg[0].message;
 
+  const user=Msg[0].from;
+
   let url = "https://mailbox-f7b85-default-rtdb.firebaseio.com";
   const receiver1 = localStorage.getItem("email").replace(/['@','.']/g, "");
   const putData = async () => {
@@ -41,7 +43,8 @@ const InboxMessage = () => {
     <div className={classes.parent}>
       
       <div className={classes.msg}>
-        <p>{singlemsg}</p>
+      <p>From:- {user}</p>
+        <p>Message:- {singlemsg}</p>
       </div>
     </div>
   );
